@@ -12,7 +12,8 @@ function ProductList({ onHomeClick }) {
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity,0);
 
     const [showCart, setShowCart] = useState(false);
-    const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
+    const [showAboutUs, setShowAboutUs] = useState(false);
+    //const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [AddedToCart, setAddedToCart] = useState({});
 
     const plantsArray = [
@@ -252,17 +253,17 @@ function ProductList({ onHomeClick }) {
         e.preventDefault();
         setShowCart(true); // Set showCart to true when cart icon is clicked
     };
-    const handlePlantsClick = (e) => {
-        e.preventDefault();
-        setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
-        setShowCart(false); // Hide the cart when navigating to About Us
-    };
+const handlePlantsClick = (e) => {
+    e.preventDefault();
+    setShowAboutUs(false); // Show product list
+    setShowCart(false);    // Hide cart
+};
 
-    const handleContinueShopping = (e) => {
-        e.preventDefault();
-        setShowCart(false);
-    };
-
+const handleContinueShopping = (e) => {
+    e.preventDefault();
+    setShowCart(false);    // Hide cart
+    setShowAboutUs(false); // Show product list
+};
     const handleAddToCart = (product) => {
         dispatch(addItem(product)); // Dispatch the action to add the product to the cart (Redux action)
 
