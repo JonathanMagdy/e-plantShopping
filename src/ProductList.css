@@ -3,32 +3,65 @@
     min-height: 100vh;
 }
 
-/* Navbar */
+/* Navbar - FIXED ON TOP */
 .navbar {
     background-color: #2E7D32;
     color: #fff;
-    padding: 12px 30px;
+    padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    /* Fixed logic */
     position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 2000;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px; /* Fixed height */
+    z-index: 3000; /* Higher than Explorer and Grid */
+    
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .brand { display: flex; align-items: center; gap: 15px; cursor: pointer; }
 .brand img { height: 50px; background: #fff; border-radius: 50%; }
-.nav-main-title { margin: 0; font-size: 20px; letter-spacing: 1px; font-weight: 500; }
-.nav-sub-title { font-size: 10px; opacity: 0.8; letter-spacing: 1px; }
+.nav-main-title { margin: 0; font-size: 24px; letter-spacing: 1px; font-weight: 800; color: white; }
+.nav-sub-title { font-size: 10px; opacity: 0.9; letter-spacing: 1px; display: block; color: white; }
 
-.nav-links { display: flex; gap: 35px; align-items: center; }
-.nav-link-btn { background: none; border: none; color: white; font-size: 17px; font-weight: 700; cursor: pointer; }
+.nav-links { display: flex; gap: 40px; align-items: center; }
+.nav-link-btn { background: none; border: none; color: white; font-size: 18px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+.nav-link-btn:hover { opacity: 0.8; }
 
-.cart-icon-btn { background: none; border: none; cursor: pointer; position: relative; }
+.cart-icon-btn { background: none; border: none; cursor: pointer; position: relative; color: white; }
 .cart-count-inside {
-    position: absolute; top: 58%; left: 50%; transform: translate(-50%, -15%);
-    font-size: 14px; font-weight: bold; color: white;
+    position: absolute; 
+    top: 58%; 
+    left: 50%; 
+    transform: translate(-50%, -15%);
+    font-size: 14px; 
+    font-weight: bold; 
+    color: white;
+}
+
+/* Content Body adjustment */
+.content-body {
+    /* We use dynamic padding in JSX, but default is here */
+    min-height: 100vh;
+}
+
+/* Explorer / Parallax View */
+.explorer-view { 
+    height: 100vh; 
+    overflow: hidden; 
+    position: relative;
+    /* Explorer looks better if it starts from the top, background blurs behind navbar */
+}
+
+/* Product Grid adjustment */
+.product-grid-container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 40px 20px; 
 }
 
 /* Explorer / Parallax View */
@@ -66,3 +99,48 @@
 .add-btn.added { background: #E0E0E0; color: #888; cursor: default; }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
+
+
+/* Pro Footer Styles */
+.pro-footer {
+    background-color: #1b3d1e;
+    color: #e8f5e9;
+    padding: 60px 20px 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-section h4 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2e7d32;
+    display: inline-block;
+}
+
+.footer-section p { line-height: 1.6; font-size: 14px; color: #a5d6a7; }
+
+.footer-section ul { list-style: none; padding: 0; }
+.footer-section ul li { margin-bottom: 10px; }
+.footer-section ul li a { color: #a5d6a7; text-decoration: none; transition: 0.3s; }
+.footer-section ul li a:hover { color: #fff; padding-left: 5px; }
+
+.footer-subscribe { display: flex; gap: 10px; margin-top: 15px; }
+.footer-subscribe input {
+    padding: 10px; border: none; border-radius: 5px; flex: 1;
+}
+.footer-subscribe button {
+    padding: 10px 20px; background: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;
+}
+
+.footer-bottom {
+    text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 12px; color: #666;
+}
